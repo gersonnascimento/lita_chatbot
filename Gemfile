@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "lita"
-
+gem 'pry'
 # Uncomment to use the HipChat adapter
 # gem "lita-hipchat"
 

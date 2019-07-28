@@ -4,7 +4,7 @@ module Lita
       route(/tudo bem\?/, :resp_tudo_bem)
       route(/seu nome\?/, :resp_nome)
 
-      route(/marcas/, :marcas) #teste com api da tabela fipe
+      route(/categorias/, :categories) #teste com api de categorias do mercado livre
 
 
       def resp_tudo_bem(response)
@@ -15,8 +15,8 @@ module Lita
         response.reply('Eu sou o Oscar.')
       end
 
-      def marcas(response)
-        http_response = http.get('https://api.mercadolibre.com/sites/MLA/categoriesk')
+      def categories(response) # teste com api de categorias do mercado livre
+        http_response = http.get('https://api.mercadolibre.com/sites/MLA/categories')
         parsed = MultiJson.load(http_response.body)
 
         resp = parsed.map{|x| x['name']}.join(',')
